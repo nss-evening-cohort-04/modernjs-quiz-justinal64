@@ -1,0 +1,8 @@
+/*// Used for anythign that needs centered*/
+.center {
+    text-align: center;
+}
+
+.btn-danger {
+    width: 40%;
+}

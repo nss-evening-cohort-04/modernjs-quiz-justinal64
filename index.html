@@ -2,10 +2,40 @@
 <html>
 <head>
     <title>Quiz</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
+    <div class="row">
+        <div class="player col-sm-4 col-md-3 col-md-offset-3 col-sm-offset-3">
+            <h3>Player</h3>
+            <input type="text" id="player-name" value="Justin">
+            <select id="robot-player">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+        <div class="enemy col-sm-4 col-md-3">
+            <h3>Enemy</h3>
+            <input type="text" id="enemy-name" value="Enemy">
+            <select id="robot-enemy">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-md-offset-4 col-sm-offset-4 center">
+            <h1>LET THE BATTLE BEGIN</h1>
+            <button type="button" id="attack" class="btn btn-danger">Attack</button>
+        </div>
+    </div>
     <script src="/lib/node_modules/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/javascript/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
