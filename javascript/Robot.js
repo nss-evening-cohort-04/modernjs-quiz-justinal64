@@ -7,11 +7,10 @@ var Robot = (function(originalRobot) {
     /*
         Base Robot Function
     */
-    originalRobot.Robot = function(name) {
+    originalRobot.robot = function(name) {
         this.class = null;
         this.weapon = null;
         this.playerName = name || "unknown robot";
-        this.health = Math.floor(Math.random() * 40 + 100);
     };
 
     // originalRobot.robotTest = function() {

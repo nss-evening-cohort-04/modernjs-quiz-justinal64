@@ -8,5 +8,5 @@
 // tester.playerName = "Test";
 // tester.weapon = "Sword";
 // console.log("tester", tester);
-
-
+var Robot;
+console.log("Robot in main.js", Robot);

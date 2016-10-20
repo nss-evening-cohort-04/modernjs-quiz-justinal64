@@ -7,14 +7,17 @@ var Robot = (function(robotType) {
     robotType.Drone = function(name) {
         this.wheels = 0;
     };
+    robotType.Drone.prototype = new Robot.robot();
 
     robotType.Bipedal = function(name) {
         this.wheels = 2;
     };
+    robotType.Bipedal.prototype = new Robot.robot();
 
     robotType.Atv = function(name) {
         this.wheels = 4;
     };
+    robotType.Atv.prototype = new Robot.robot();
 
     // robotType.Testest = function() {
     //     this.baseDamage = Math.floor(Math.random() * 10);
@@ -25,7 +28,8 @@ var Robot = (function(robotType) {
     return robotType;
 } (Robot || {}));
 
-// console.log("Robot", Robot);
+var tester = new Robot.Drone();
+console.log("Drone prototype", tester);
 // console.log("Robot", Robot.Player("test"));
 // var tester = new Robot.robotTest();
 // tester.playerName = "Test";
