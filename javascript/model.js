@@ -1,57 +1,53 @@
 "use strict";
-// 1. Define at least 2 specific robot model functions for each type
-// 2. Give each robot model a different range of health.
-// 3. For example, one model can have health range of 50-80,
-// and another one will have a range of 60-120.
-// To accomplish this, read about the [Math.random()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) function in JavaScript.
-// 4. Give each robot model a different range of damage they do using the same technique
-
 var Robot = (function(robotModal) {
 
-    robotModal.model1 = function() {    // number between 0 - 20
-        this.health = Math.floor(Math.random() * (20 - 0 + 1));
-    };
+    robotModal.Model = {};
 
-    robotModal.model2 = function() {    // number between 20 - 40
-        this.health = Math.floor(Math.random() * (40 - 20 + 1) + 20);
+    robotModal.Model.Healer = function() {
+        this.name = "Healer";
+        this.health = robotModal.Model.randomValue(20, 240); // number between 20 - 40
+        this.damage = robotModal.Model.randomValue(25, 30); // number between 25 - 30
     };
+    robotModal.Model.Healer.prototype = new Robot.Type.Drone();
 
-    robotModal.model3 = function() {    // number between 40 - 60
-        this.health = Math.floor(Math.random() * (60 - 40 + 1) + 40);
+    robotModal.Model.Caster = function() {
+        this.name = "Caster";
+        this.health = robotModal.Model.randomValue(20, 40); // number between 20 - 40
+        this.damage = robotModal.Model.randomValue(20, 25); // number between 20 - 25
     };
+    robotModal.Model.Caster.prototype = new Robot.Type.Drone();
 
-    robotModal.model4 = function() {    // number between 60 - 80
-        this.health = Math.floor(Math.random() * (80 - 60 + 1) + 60);
+    robotModal.Model.Buffer = function() {
+        this.name = "Buffer";
+        this.health = robotModal.Model.randomValue(40, 60); // number between 40 - 60
+        this.damage = robotModal.Model.randomValue(15, 20); // number between 15 - 20
     };
+    robotModal.Model.Buffer.prototype = new Robot.Type.Bipedal();
 
-    robotModal.model5 = function() {    // number between 80 - 100
-        this.health = Math.floor(Math.random() * (100 - 80 + 1) + 80);
+    robotModal.Model.Support = function() {
+        this.name = "Support";
+        this.health = robotModal.Model.randomValue(60, 80); // number between 60 - 80
+        this.damage = robotModal.Model.randomValue(10, 15); // number between 10 - 15
     };
+    robotModal.Model.Support.prototype = new Robot.Type.Bipedal();
 
-    robotModal.model6 = function() {    // number between 100 - 120
-        this.health = Math.floor(Math.random() * (120 - 100 + 1) + 100);
+    robotModal.Model.Melee = function() {
+        this.name = "Melee";
+        this.health = robotModal.Model.randomValue(80, 100); // number between 80 - 100
+        this.damage = robotModal.Model.randomValue(5, 10); // number between 5 - 10
     };
+    robotModal.Model.Melee.prototype = new Robot.Type.Atv();
 
-    // robotModal.robotTest.prototype = new originalRobot.Robot();
-    // robotModal.Testest = function() {
-    //     this.baseDamage = Math.floor(Math.random() * 10);
-    //     this.weapon = null;
-    // };
-    // robotModal.robotTest.prototype = new originalRobot.Robot();
+    robotModal.Model.Tank = function() {
+        this.name = "Tank";
+        this.health = robotModal.Model.randomValue(100, 120); // number between 100 - 120
+        this.damage = robotModal.Model.randomValue(1, 5); // number between 1 - 5
+    };
+    robotModal.Model.Tank.prototype = new Robot.Type.Atv();
+
+    robotModal.Model.randomValue = function(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
 
     return robotModal;
 } (Robot || {}));
-
-
-var model1 = new Robot.model1();
-var model2 = new Robot.model2();
-var model3 = new Robot.model3();
-var model4 = new Robot.model4();
-var model5 = new Robot.model5();
-var model6 = new Robot.model6();
-console.log("model1", model1);
-console.log("model2", model2);
-console.log("model3", model3);
-console.log("model4", model4);
-console.log("model5", model5);
-console.log("model6", model6);
