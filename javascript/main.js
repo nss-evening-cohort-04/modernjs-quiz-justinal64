@@ -52,6 +52,7 @@ $attack.click(() => {
         $('#combat').prepend(`<div class="result">${enemy.playerName} WON THE FIGHT!!</div>`);
         tryAgain();
     }
+    populateBattlePage();
 });
 
 // Populate select options
@@ -65,6 +66,13 @@ $.each(Robot.Model, (event, index) => {
 // Populate battle log field
 function populateLogs(target, attacking, damage) {
     $('#combat').prepend(`<div>${attacking} hit ${target} for ${damage}</div>`);
+}
+
+function populateBattlePage() {
+    $('#playerHp').html(`<div id="stat__name"><h1>${player.playerName}</h1></div>
+                      <div class="stat__font" id="stat__health"><span>You Have <strong>${player.class.health}</strong> HP</span></div>`);
+    $('#enemyHp').html(`<div id="stat__name"><h1>${enemy.playerName}</h1></div>
+                      <div class="stat__font" id="stat__health"><span>You Have <strong>${enemy.class.health}</strong> HP</span></div>`);
 }
 
 // Used to add a button that will let the user reload the page to play again.
