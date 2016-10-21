@@ -21,7 +21,7 @@ var Robot = (function(originalRobot) {
     this.totalDamage = Robot.Model.randomValue(5, 1) + oppenent.class.damage;
     target.class.health -= this.totalDamage;
           if(target.class.health <= 0) {
-            // That way you don't display a negative hp
+            // This way you don't display a negative hp
             target.class.health = 0;
         }
         return this.totalDamage;
